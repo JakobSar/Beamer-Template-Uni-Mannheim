@@ -1,0 +1,301 @@
+\documentclass[aspectratio=169]{beamer}
+% Compile with xelatex or lualatex for Alegreya Sans.
+
+% ----------------------------------------------------------------------
+% Beamer-Theme & Grundlayout
+% ----------------------------------------------------------------------
+\usetheme{metropolis}
+
+\setlength{\parindent}{0pt}
+\setbeamersize{text margin left=0.5cm, text margin right=0.5cm}
+\metroset{
+  block=fill,
+  progressbar=frametitle
+}
+
+% ----------------------------------------------------------------------
+% Eingabekodierung, Sprache, Fonts
+% ----------------------------------------------------------------------
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage[english]{babel}
+\else
+  \usepackage[english]{babel}
+  \usepackage{fontspec}
+  \setsansfont{AlegreyaSans}[
+      Path = fonts/,
+      Extension = .ttf,
+      UprightFont = *-Regular,
+      BoldFont    = *-Bold,
+      ItalicFont  = *-Italic,
+      BoldItalicFont = *-BoldItalic
+  ]
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% ----------------------------------------------------------------------
+% Mathematik-Pakete
+% ----------------------------------------------------------------------
+\usepackage{amsmath,amssymb,amsbsy}
+\usepackage{bm}
+\usepackage{BOONDOX-cal}
+
+% ----------------------------------------------------------------------
+% Symbole, Schriften, Farben
+% ----------------------------------------------------------------------
+\usepackage{latexsym}
+\usepackage{calligra}
+\usepackage{xcolor}
+
+% ----------------------------------------------------------------------
+% Grafiken & Zeichnungen
+% ----------------------------------------------------------------------
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{stackengine}
+\graphicspath{{figures/}{./}}
+
+% ----------------------------------------------------------------------
+% Tabellen & Layout
+% ----------------------------------------------------------------------
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{changepage}
+\usepackage{enumitem}
+
+% ----------------------------------------------------------------------
+% Hyperlinks
+% ----------------------------------------------------------------------
+\usepackage{hyperref}
+\usepackage[round]{natbib}
+
+% ----------------------------------------------------------------------
+% Beamer-Farbschema
+% ----------------------------------------------------------------------
+\definecolor{UBCblue}{rgb}{0.04706, 0.13725, 0.26667}
+\definecolor{UBCgrey}{rgb}{0.3686, 0.5255, 0.6235}
+\definecolor{UBCbar}{rgb}{0.5137, 0.6000, 0.6902}
+
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{normal text}{bg=white}
+\setbeamercolor{frametitle}{bg=UBCblue, fg=white}
+\setbeamercolor{alerted text}{fg=UBCgrey}
+\setbeamercolor{progress bar}{fg=UBCbar}
+\setbeamercolor{title separator}{fg=UBCgrey}
+\setbeamercolor{section title}{fg=UBCblue}
+\setbeamercolor{subsection title}{fg=UBCgrey}
+
+\makeatletter
+\setlength{\metropolis@progressinheadfoot@linewidth}{1pt}
+\makeatother
+
+% ----------------------------------------------------------------------
+% Appendix-Stil
+% ----------------------------------------------------------------------
+\usepackage{etoolbox}
+
+\newcommand{\appendixstyle}{%
+  \setbeamercolor{background canvas}{bg=gray!10}%
+}
+
+% ----------------------------------------------------------------------
+% Aufzählungszeichen anpassen
+% ----------------------------------------------------------------------
+\setbeamertemplate{itemize item}{%
+  \raisebox{0.2ex}{\small\textendash}%
+}
+\setbeamertemplate{itemize subitem}{%
+  \raisebox{0.2ex}{\small\textendash}%
+}
+
+%%%%% Presentation Main Page %%%%%
+
+\author{--- Your Name ---}
+\title{--- Title of Presentation ---}
+\subtitle{--- Subtitle / Project Update ---}
+\institute{--- Supervisor, Institution ---}
+\date{--- Presentation Date ---}
+
+\begin{document}
+
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
+
+\section{Introduction}
+\begin{frame}{Introduction}
+\textbf{\underline{Key Topics:} Lorem, Ipsum \& Dolor}
+
+\begin{columns}[t]
+\begin{column}{0.6\textwidth}
+\begin{itemize}
+\item [$\rightarrow$] Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+\item [$\rightarrow$] Ut labore et dolore magna aliquyam erat, sed diam voluptua, at vero eos et accusam.
+\item [$\Rightarrow$] Stet clita kasd gubergren, no sea takimata sanctus est lorem ipsum dolor sit amet.
+\end{itemize}
+\end{column}
+
+\begin{column}{0.4\textwidth}
+\begin{center}
+\includegraphics[width=0.7\textwidth]{example-image} \\
+\scriptsize{title \\ \textit{source: abc}}
+\end{center}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Research Focus}
+\begin{block}{Core Question}
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.
+\end{block}
+\end{frame}
+
+\begin{frame}{Long Story Short}
+\textbf{Main Contributions}
+\begin{itemize}
+\item[$-$] Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+\item[$-$] Sed diam nonumy eirmod tempor invidunt ut labore et dolore.
+\item[$-$] Magna aliquyam erat, sed diam voluptua.
+\end{itemize}
+
+\vspace{10pt}
+\textbf{Main Findings}
+\begin{itemize}
+\item[$\checkmark$] At vero eos et accusam et justo duo dolores et ea rebum.
+\item[$\checkmark$] Stet clita kasd gubergren, no sea takimata sanctus.
+\item[$\checkmark$] Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+\end{itemize}
+\end{frame}
+
+\section{Methodology}
+\begin{frame}{Context}
+\begin{columns}
+\begin{column}{0.6\textwidth}
+\textbf{Background}
+\begin{itemize}
+\item[$-$] Lorem ipsum dolor sit amet.
+\item[$-$] Consetetur sadipscing elitr.
+\item[$-$] Sed diam nonumy eirmod tempor.
+\end{itemize}
+
+\vspace{5pt}
+\underline{Some Facts}
+\begin{itemize}
+\item[$\rightarrow$] Invidunt ut labore et dolore magna aliquyam erat.
+\item[$\rightarrow$] Sed diam voluptua at vero eos et accusam.
+\item[$\rightarrow$] Et justo duo dolores et ea rebum.
+\end{itemize}
+\end{column}
+
+\begin{column}{0.3\textwidth}
+\begin{center}
+\includegraphics[width=1\textwidth]{example-grid-100x100pt}
+\scriptsize{\textit{source: \\ blablabla}}
+\end{center}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Treatment Arms}
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.
+\begin{block}{\textbf{1st Treatment Arm:}}
+\begin{itemize}
+\item[$\rightarrow$] Ut labore et dolore magna aliquyam erat, sed diam voluptua.
+\end{itemize}
+\end{block}
+\begin{block}{\textbf{2nd Treatment Arm:}}
+\begin{itemize}
+\item[$\rightarrow$] At vero eos et accusam et justo duo dolores et ea rebum.
+\end{itemize}
+\end{block}
+\begin{block}{\textbf{Control}}
+\begin{itemize}
+\item[$\rightarrow$] Stet clita kasd gubergren, no sea takimata sanctus.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Regression}
+\textbf{Simple OLS}
+\begin{equation*}
+Y_i = \alpha + \beta_1 VAR_1 + \beta_i X'_{i} + \varepsilon_i
+\end{equation*}
+
+\begin{small}
+where:
+\begin{itemize}[noitemsep]
+\item[$-$] Y: Lorem ipsum dolor sit amet.
+\item[$-$] VAR: Consetetur sadipscing elitr.
+\item[$-$] X: Sed diam nonumy eirmod tempor.
+\end{itemize}
+\end{small}
+
+\vspace{10pt}
+\begin{itemize}
+\item[$\rightarrow$] Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+\item[$\rightarrow$] Ut labore et dolore magna aliquyam erat, sed diam voluptua, at vero eos et accusam.
+\end{itemize}
+\end{frame}
+
+\section{Results}
+\begin{frame}{Results}
+\begin{columns}
+\begin{column}{0.55\textwidth}
+\textbf{Significant Results:}
+\begin{itemize}
+\item[$\rightarrow$] Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+\item[$\rightarrow$] Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.
+\end{itemize}
+\textbf{Sum up:}
+\begin{itemize}
+\item[$\Rightarrow$] At vero eos et accusam et justo duo dolores et ea rebum, sed diam voluptua.
+\end{itemize}
+\end{column}
+
+\begin{column}{0.4\textwidth}
+\begin{center}
+\scriptsize{
+\begin{tabular}{l p{4cm}}
+\underline{Table 1:} & Title
+\end{tabular}}
+\includegraphics[width=1\textwidth]{example-image-a}\qquad
+\end{center}
+\end{column}
+\end{columns}
+\end{frame}
+
+\section{Conclusion}
+\begin{frame}{Conclusion}
+\textbf{Research Question} \\
+\begin{itemize}
+\item[Q:] Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+\end{itemize}
+
+\textbf{Method} \\
+\begin{itemize}
+\item[$\rightarrow$] Ut labore et dolore magna aliquyam erat, sed diam voluptua, at vero eos et accusam.
+\end{itemize}
+
+\textbf{Results} \\
+\begin{itemize}
+\item[$\Rightarrow$] Stet clita kasd gubergren, no sea takimata sanctus est lorem ipsum dolor sit amet.
+\end{itemize}
+\end{frame}
+
+\appendix
+\appendixstyle
+\section{Appendix}
+\begin{frame}{Backup}
+\textbf{Additional Material}
+\begin{itemize}
+\item[$\rightarrow$] Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+\item[$\rightarrow$] Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.
+\item[$\rightarrow$] At vero eos et accusam et justo duo dolores et ea rebum.
+\end{itemize}
+\end{frame}
+
+\end{document}
